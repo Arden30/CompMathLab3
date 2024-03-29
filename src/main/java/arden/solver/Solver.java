@@ -11,7 +11,7 @@ import java.util.List;
 import static java.lang.Math.abs;
 
 public class Solver {
-    private final static double eps = 0.000001;
+    private final static double eps = 0.0000001;
     public static Solution solveWithAccuracy(Method method, Task task) {
         int n = 4;
         double i0 = method.solve(task.function(), task.a(), task.b(), task.accuracy(), n);
@@ -29,7 +29,7 @@ public class Solver {
 
     public static boolean hasGap(Task task, double x) {
         try {
-            return abs(task.function().value(x)) > 1000000;
+            return abs(task.function().value(x)) > 100000;
         } catch (ArithmeticException e) {
             return true;
         }
@@ -50,6 +50,7 @@ public class Solver {
 
         for (double i = task.a(); i <= task.b(); i += step) {
             if (abs(task.function().primitive(i)) > 10000000) {
+                System.out.println("Точка разрыва: " + i);
                 return false;
             }
         }
@@ -61,7 +62,7 @@ public class Solver {
         double newB = task.b();
         List<Double> gaps = new ArrayList<>();
 
-        double step = (task.b() - task.a()) / 100000;
+        double step = (task.b() - task.a()) / 1000000;
 
         if(hasGap(task, task.a())) {
             newA += eps;
@@ -76,6 +77,7 @@ public class Solver {
                 gaps.add(i);
             }
         }
+
         return new Interval(newA, newB, gaps);
     }
 

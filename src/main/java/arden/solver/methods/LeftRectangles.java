@@ -10,7 +10,7 @@ public class LeftRectangles implements Method {
 
     @Override
     public int order() {
-        return 3;
+        return 1;
     }
 
     @Override

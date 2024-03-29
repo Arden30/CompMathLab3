@@ -5,6 +5,7 @@ import arden.solver.funtions.definite.*;
 import arden.solver.funtions.infinite.ReversedCube;
 import arden.solver.funtions.infinite.SquareHyperbole;
 import arden.solver.funtions.infinite.ReversedSqrt;
+import arden.solver.funtions.infinite.SquareRoot;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -37,5 +38,6 @@ public class FunctionStorage {
         INFINITE_FUNCTIONS.add(new SquareHyperbole());
         INFINITE_FUNCTIONS.add(new ReversedSqrt());
         INFINITE_FUNCTIONS.add(new ReversedCube());
+        INFINITE_FUNCTIONS.add(new SquareRoot());
     }
 }
